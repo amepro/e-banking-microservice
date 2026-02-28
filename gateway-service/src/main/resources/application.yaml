@@ -1,0 +1,21 @@
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: customer-service
+          uri: lb://CUSTOMER-SERVICE
+          predicates:
+            - Path=/api/customers/**
+
+        - id: account-service
+          uri: lb://ACCOUNT-SERVICES
+          predicates:
+            - Path=/api/accounts/**
+
+server:
+  port: 8050
+
+
+
+
+
